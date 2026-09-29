@@ -72,3 +72,18 @@ python tests/integration_mysql.py
 ```
 
 Se houver falha de conexão, verifique se o servidor está ativo, a porta (normalmente 3306), as credenciais e o acesso do usuário ao schema. Se a tabela não existir, execute `schema.sql`. Para usar um servidor em outra máquina, ajuste `host` e as permissões do usuário no MySQL.
+
+## Interface gráfica (branch tkinter)
+
+Após configurar o mesmo servidor e `config.ini` descritos acima:
+
+```bash
+git switch tkinter
+python gui.py
+```
+
+A tela contém formulário de título, plataforma, status e observações, uma lista de jogos e filtro por status. Para cadastrar, clique em **Novo / Limpar**, preencha o formulário e clique em **Salvar**. Para editar, selecione uma linha, altere os campos e clique em **Salvar**. Para excluir, selecione uma linha e use **Excluir selecionado**, confirmando a ação. Para apagar as observações, esvazie o campo antes de salvar.
+
+Tkinter costuma acompanhar o instalador oficial do Python no Windows/macOS. No Ubuntu/Debian, instale `python3-tk` se estiver ausente. Verifique a instalação com `python -m tkinter`. É necessário um ambiente desktop com suporte gráfico; o aplicativo não abre em um terminal sem display.
+
+O terminal continua disponível com `python app.py`. As duas interfaces compartilham `database.py` e operam nos mesmos dados MySQL.
